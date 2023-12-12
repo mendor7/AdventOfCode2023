@@ -10,9 +10,9 @@ int main() {
     string fileName = "Races.txt";
     ifstream inputStream(fileName);
     vector<string> strings;
-    int times[4];
-    int distances[4];
-    int wins[4] = {0,0,0,0};
+    long long int times[5];
+    long long int distances[5];
+    long long int wins[5] = {0,0,0,0,0};
 
     string temp = "";
     string line1;
@@ -66,10 +66,10 @@ int main() {
     distances[3] = stoi(temp);
     temp = "";
 
-    int remaining;
+    long long int remaining;
     remaining = times[0];
     while (remaining !=0) {
-        int held = times[0] - remaining;
+        long long int held = times[0] - remaining;
         if (held * remaining >= distances[0]) {
             wins[0]++;
         }
@@ -78,7 +78,7 @@ int main() {
 
     remaining = times[1];
     while (remaining !=0) {
-        int held = times[1] - remaining;
+        long long int held = times[1] - remaining;
         if (held * remaining >= distances[1]) {
             wins[1]++;
         }
@@ -87,7 +87,7 @@ int main() {
 
     remaining = times[2];
     while (remaining !=0) {
-        int held = times[2] - remaining;
+        long long int held = times[2] - remaining;
         if (held * remaining >= distances[2]) {
             wins[2]++;
         }
@@ -96,12 +96,23 @@ int main() {
 
     remaining = times[3];
     while (remaining !=0) {
-        int held = times[3] - remaining;
+        long long int held = times[3] - remaining;
         if (held * remaining >= distances[3]) {
             wins[3]++;
         }
         remaining --;
     }
 
-    cout << wins[0] * wins[1] * wins[2] * wins[3] << endl;
+    cout << wins[0] * wins[1] * wins[2] * wins[3] << endl; //end part 1
+    times[4] = 54946592;
+    distances[4] = 302147610291404;
+    remaining = times[4];
+    while (remaining !=0) {
+        long long int held = times[4] - remaining;
+        if (held * remaining >= distances[4]) {
+            wins[4]++;
+        }
+        remaining --;
+    }
+    cout << wins[4] << endl; //end part 2
 }
